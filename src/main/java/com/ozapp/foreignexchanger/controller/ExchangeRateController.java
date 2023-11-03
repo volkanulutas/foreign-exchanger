@@ -33,4 +33,16 @@ public class ExchangeRateController {
             return ResponseEntity.internalServerError().build();
         }
     }
+
+    @GetMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Double> getExchangeRate2() {
+        try {
+            double exchangeRate = exchangeRateService.calculateExchangeRate(Double.valueOf(1L), Double.valueOf(1L));
+            return ResponseEntity.ok(exchangeRate);
+        } catch (ValidationException ex) {
+            return ResponseEntity.badRequest().build();
+        } catch (Exception ex) {
+            return ResponseEntity.internalServerError().build();
+        }
+    }
 }

@@ -13,11 +13,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity(name = "Conversion")
-@Table(indexes = {@Index(name = "idx_DetectionId", columnList = "signalId, sessionId"),
-        @Index(name = "idx_startTimeMsIndex", columnList = "startTimeMs"), @Index(name = "idx_stopTimeMsIndex", columnList = "stopTimeMs"),
-        @Index(name = "idx_startFrequencyHzIndex", columnList = "startFrequencyHz"),
-        @Index(name = "idx_StopFrequencyHzIndex", columnList = "stopFrequencyHz"),
-        @Index(name = "idx_CurrentIdentityIndex", columnList = "currentIdentity")})
+@Table(indexes = {@Index(name = "idx_TransactionIdIndex", columnList = "transactionId"), @Index(name = "idx_DateIndex", columnList = "date"),})
 public class ConversionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
