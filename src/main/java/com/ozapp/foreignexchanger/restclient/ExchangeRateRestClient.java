@@ -1,11 +1,14 @@
 package com.ozapp.foreignexchanger.restclient;
 
 import com.ozapp.foreignexchanger.config.AppProperty;
-import com.ozapp.foreignexchanger.data.dto.FixerExchangeRateDto;
+import com.ozapp.foreignexchanger.data.dto.fixer.FixerExchangeRateDto;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
+@Slf4j
 @Component
 public class ExchangeRateRestClient {
     private final RestTemplate restTemplate;
@@ -18,17 +21,13 @@ public class ExchangeRateRestClient {
         this.appProperty = appProperty;
     }
 
-    public FixerExchangeRateDto getExchangeRates() {
+    public FixerExchangeRateDto getExchangeRate(String baseCurrency, String targetCurrency) throws RestClientException {
         try {
-/*            FixerExchangeRateDto exchangeRateDto =
-                    restTemplate.getForObject(appProperty.getFixerUrl() + appProperty.getFixerAccessKey(), FixerExchangeRateDto.class); */
-
-            FixerExchangeRateDto exchangeRateDto =
-                    restTemplate.getForObject("http://data.fixer.io/api/latest?access_key=af5616beecc053123d964ceb200d27b5", FixerExchangeRateDto.class);
-            return exchangeRateDto;
+            return restTemplate.getForObject(
+                    appProperty.getFixerUrl() + appProperty.getFixerAccessKey() + "&base=" + baseCurrency + "&symbols=" + targetCurrency,
+                    FixerExchangeRateDto.class);
         } catch (Exception ex) {
-            System.out.println(ex);
+            throw new RestClientException("Error is occurred while communicating with Fixer Api. Detail: ", ex);
         }
-        return null;
     }
 }

@@ -13,7 +13,7 @@ import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Order;
 import jakarta.persistence.criteria.Root;
 
-public enum EnumDetectionSortType {
+public enum EnumConversionListSortType {
     ASC {
         public <T> Order build(Root<T> root, CriteriaBuilder cb, ConversionListSortModel request, CriteriaQuery criteriaQuery) {
             return cb.asc(root.get(request.getColumn().getColumnName().toString()));

@@ -16,8 +16,5 @@ public enum SearchOperation {
     NOT_EQUAL,
     EQUAL,
     MATCH,
-    MATCH_END,
-    LIST_CONTAINS_DETECTION_SOURCE,
-    IDENTIFICATION,
-    LIST_CONTAINS_SIGNAL_TYPE
+    MATCH_END
 }

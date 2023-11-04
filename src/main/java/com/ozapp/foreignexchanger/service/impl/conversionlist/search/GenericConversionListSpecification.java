@@ -20,12 +20,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GenericDetectionSpecification<T> implements Specification<T>, Serializable {
+public class GenericConversionListSpecification<T> implements Specification<T>, Serializable {
     private final List<SearchCriteria> list;
 
     private final ConversionListSortModel conversionListSort;
 
-    public GenericDetectionSpecification(ConversionListSortModel conversionListSort) {
+    public GenericConversionListSpecification(ConversionListSortModel conversionListSort) {
         this.conversionListSort = conversionListSort;
         this.list = new ArrayList<>();
     }
@@ -54,24 +54,6 @@ public class GenericDetectionSpecification<T> implements Specification<T>, Seria
                 predicates.add(builder.like(builder.lower(root.get(criteria.getKey())), "%" + criteria.getValue().toString().toLowerCase() + "%"));
             } else if (criteria.getOperation().equals(SearchOperation.MATCH_END)) {
                 predicates.add(builder.like(builder.lower(root.get(criteria.getKey())), criteria.getValue().toString().toLowerCase() + "%"));
-            } else if (criteria.getOperation().equals(SearchOperation.LIST_CONTAINS_DETECTION_SOURCE)) {
-                /*
-                List<String> criteriaList = ((List<Object>) criteria.getValue()).stream().map(String::valueOf).collect(Collectors.toList());
-                CriteriaBuilder.In<EnumDetectionSource> inClause = builder.in(root.get(criteria.getKey()));
-                for (String title : criteriaList) {
-                    inClause.value(EnumDetectionSource.valueOf(title));
-                }
-                predicates.add(inClause);*/
-            } else if (criteria.getOperation().equals(SearchOperation.LIST_CONTAINS_SIGNAL_TYPE)) {
-                /*
-                List<String> criteriaList = ((List<Object>) criteria.getValue()).stream().map(String::valueOf).collect(Collectors.toList());
-                CriteriaBuilder.In<EnumSignalType> inClause = builder.in(root.get(criteria.getKey()));
-                for (String title : criteriaList) {
-                    inClause.value(EnumSignalType.getValue(title));
-                }
-                predicates.add(inClause);*/
-            } else if (criteria.getOperation().equals(SearchOperation.IDENTIFICATION)) {
-                predicates.add(builder.like(builder.lower(root.get(criteria.getKey())), "%" + criteria.getValue().toString().toLowerCase() + "%"));
             }
         }
         List<Order> orders = new ArrayList<>();

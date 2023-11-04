@@ -11,13 +11,13 @@ package com.ozapp.foreignexchanger.data.model.conversionlist;
 import lombok.Getter;
 
 @Getter
-public enum EnumDetectionColumn {
-    TRANSACTION_ID("transaction_id"),
+public enum EnumConversionListColumn {
+    ID("id"),
     DATE("date");
 
     private final String columnName;
 
-    EnumDetectionColumn(String columnName) {
+    EnumConversionListColumn(String columnName) {
         this.columnName = columnName;
     }
 }

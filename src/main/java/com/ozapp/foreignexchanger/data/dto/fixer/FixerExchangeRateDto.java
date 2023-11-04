@@ -1,4 +1,4 @@
-package com.ozapp.foreignexchanger.data.dto;
+package com.ozapp.foreignexchanger.data.dto.fixer;
 
 import lombok.Data;
 
@@ -7,7 +7,6 @@ import java.util.Map;
 
 @Data
 public class FixerExchangeRateDto {
-
     private boolean success;
 
     private long timestamp;
@@ -17,4 +16,6 @@ public class FixerExchangeRateDto {
     private String base;
 
     private Map<String, Double> rates = new HashMap<>();
+
+    private FixerErrorDto error;
 }
