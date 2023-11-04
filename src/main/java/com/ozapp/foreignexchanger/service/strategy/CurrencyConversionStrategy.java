@@ -6,7 +6,6 @@ import com.ozapp.foreignexchanger.data.exception.RestClientException;
 import com.ozapp.foreignexchanger.data.exception.ValidationException;
 
 public interface CurrencyConversionStrategy {
-
     CurrencyConversionDto convert(double sourceAmount, String sourceCurrency, String targetCurrency) throws ValidationException;
 
     ExchangeRateDto calculateExchangeRate(String sourceCurrency, String targetCurrency) throws ValidationException, RestClientException;

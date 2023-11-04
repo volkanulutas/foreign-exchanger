@@ -11,7 +11,7 @@ public class RestClientException extends RuntimeException {
 
     private String detail;
 
-    public RestClientException( int code, String type, String detail) {
+    public RestClientException(int code, String type, String detail) {
         super(detail);
     }
 

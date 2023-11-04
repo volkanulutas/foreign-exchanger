@@ -26,7 +26,7 @@ public class ExchangeRateServiceImpl implements ExchangeRateService {
     public double calculateExchangeRate(String sourceCurrency,
                                         String targetCurrency) throws ValidationException, RestClientException, IllegalAccessException {
         validate(sourceCurrency, targetCurrency);
-        CurrencyConversionStrategy strategy ;
+        CurrencyConversionStrategy strategy;
         ExchangeRateDto exchangeRate;
         try {
             strategy = currencyConversionStrategyFactory.getStrategy(EnumConversionType.FIXER);

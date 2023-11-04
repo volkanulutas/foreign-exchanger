@@ -7,5 +7,6 @@ import lombok.Data;
 @Data
 public class CurrencyConversionDto {
     private double targetAmount;
+
     private double exchangeRate;
 }

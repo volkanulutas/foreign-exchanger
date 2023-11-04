@@ -1,7 +1,7 @@
 package com.ozapp.foreignexchanger.converter;
 
-import com.ozapp.foreignexchanger.data.entity.ConversionEntity;
 import com.ozapp.foreignexchanger.data.dto.ConversionDto;
+import com.ozapp.foreignexchanger.data.entity.ConversionEntity;
 
 public class ConversionConverter {
     public static ConversionDto toDto(ConversionEntity source) {

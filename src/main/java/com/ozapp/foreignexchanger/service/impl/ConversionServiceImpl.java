@@ -89,7 +89,7 @@ public class ConversionServiceImpl implements ConversionService {
         if (request.getCriteria() != null) {
             boolean dateIsNull = request.getCriteria().getDate() == null;
             boolean idIsNull = request.getCriteria().getId() == null;
-            if (dateIsNull  && idIsNull) {
+            if (dateIsNull && idIsNull) {
                 throw new ValidationException("Conversion list data is not valid! At least one or more criteria must be provided.");
             }
         }
