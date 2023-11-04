@@ -1,9 +1,9 @@
-package com.ozapp.foreignexchanger.data.dto.fixer;
+package com.ozapp.foreignexchanger.data.dto.exchangeRate;
 
 import lombok.Data;
 
 @Data
-public class FixerErrorDto {
+public class ExchangeErrorDto {
     private int code;
 
     private String type;

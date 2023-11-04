@@ -1,4 +1,4 @@
-package com.ozapp.foreignexchanger.data;
+package com.ozapp.foreignexchanger.data.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -16,7 +16,7 @@ import org.hibernate.annotations.UuidGenerator;
 @Getter
 @Setter
 @Entity(name = "Conversion")
-@Table(indexes = {@Index(name = "idx_TransactionIdIndex", columnList = "id"), @Index(name = "idx_DateIndex", columnList = "date"),})
+@Table(indexes = {@Index(name = "idx_TransactionIdIndex", columnList = "id"), @Index(name = "idx_DateIndex", columnList = "date")})
 public class ConversionEntity {
     @Id
     @UuidGenerator

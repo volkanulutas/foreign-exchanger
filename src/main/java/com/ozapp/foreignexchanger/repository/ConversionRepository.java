@@ -1,6 +1,6 @@
 package com.ozapp.foreignexchanger.repository;
 
-import com.ozapp.foreignexchanger.data.ConversionEntity;
+import com.ozapp.foreignexchanger.data.entity.ConversionEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
